@@ -1,0 +1,90 @@
+$breakpoint-alpha: 480px // adjust to your needs
+
+.rwd-table
+  margin: 1em 0
+  width: 100% // 
+
+  tr
+    border-top: 1px solid #ddd
+    border-bottom: 1px solid #ddd
+
+
+  th
+    background: #3463af
+    color: #fff
+    padding: 10px 15px
+
+
+  td
+    display: block
+
+    &:first-child
+      padding-top: .5em
+
+    &:last-child
+      padding-bottom: .5em
+
+
+    &:before
+      content: attr(data-th)": " // who knew you could do this? The internet, that's who.
+      font-weight: bold
+
+      // optional stuff to make it look nicer
+      width: 6.5em // magic number :( adjust according to your own content
+      display: inline-block
+      // end options
+
+      display: none
+  th, td
+    text-align: left
+
+    display: table-cell
+    padding: .25em .5em
+
+
+
+body
+  padding: 0 2em
+  font-family: Montserrat, sans-serif
+  -webkit-font-smoothing: antialiased
+  text-rendering: optimizeLegibility
+  color: #444
+  background: #eee
+
+
+h1
+  font-weight: normal
+  letter-spacing: -1px
+  color: #34495E
+
+
+.rwd-table
+  background: #fff
+  color: #000
+  border-radius: .4em
+  overflow: hidden
+  tr
+    border-color: lighten(#000000 , 10%)
+
+  th, td
+    margin: 0
+    padding: 5px 15px
+    border: 1px solid #f3f3f3
+
+  th
+    padding: 10px 15px
+
+
+
+.button
+     border: none
+     color: #fff
+     padding: 5px 10px
+     border-radius: 5px
+     margin: 5px
+
+.edit_button
+     background: #56af03
+
+.delete_button
+     background: #ef2828

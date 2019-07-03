@@ -1,0 +1,60 @@
+<app-header></app-header>
+
+<div class="wrapper">
+  <div class="table">
+    <div class="table-users">
+      <div class="header">Users</div>
+
+      <table class="rwd-table" cellspacing="0">
+        <tr>
+          <th>Picture</th>
+          <th>Id</th>
+          <th>User Id</th>
+          <th>Title</th>
+          <th>Completed</th>
+          <th width="230">
+            Edit & Delete
+          </th>
+        </tr>
+
+        <tr *ngFor="let data of pagedItems; let i = index">
+          <td>
+            <img src='{{"https://joeschmoe.io/api/v1/"+data.id}}'/>
+          </td>
+          <td> {{data.id}}</td>
+          <td>{{data.userId}}</td>
+          <td> {{data.title}}</td>
+          <td>{{data.completed}}</td>
+          <td>
+            <!--<button class="button edit_button" (click)="edit(data.id)">Edit</button>-->
+            <button class="button edit_button" [routerLink]="['/profile',data.id]">Edit</button>
+            <button class="button delete_button" (click)="edit(data.id)">Delete</button>
+          </td>
+        </tr>
+
+      </table>
+
+      <div *ngIf="pager.pages && pager.pages.length" class="paginationWrapper">
+        <ul class="pagination">
+          <li [ngClass]="{disabled:pager.currentPage === 1}">
+            <a (click)="setPage(1)">First</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === 1}">
+            <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+          </li>
+          <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+            <a (click)="setPage(page)">{{page}}</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+            <a (click)="setPage(pager.currentPage + 1)">Next</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+            <a (click)="setPage(pager.totalPages)">Last</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
